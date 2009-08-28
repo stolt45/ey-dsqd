@@ -1,0 +1,5 @@
+check process dsqd_dictionarysquared
+  with pidfile /var/run/dsqd.pid
+  start = "/engineyard/bin/dsqd start"
+  stop = "/engineyard/bin/dsqd stop"
+  group dsqd
