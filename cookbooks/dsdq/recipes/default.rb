@@ -1,6 +1,6 @@
 require 'pp'
 #
-# Cookbook Name:: dsdq
+# Cookbook Name:: dsqd
 # Recipe:: default
 #
 
@@ -27,8 +27,12 @@ remote_file "/etc/monit.d/dsqd.dictionarysquared.monitrc" do
   action :create
 end
 
-execute "restart-monit" do
-  command "/etc/init.d/monit restart"
+execute "stop-monit" do
+  command "pkill -9 monit"
   action :run
 end
 
+execute "start-monit" do
+  command "telinit q"
+  action :run
+end
